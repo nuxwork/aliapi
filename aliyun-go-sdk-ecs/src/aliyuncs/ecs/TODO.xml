@@ -3,6 +3,8 @@
 
 实例，
 
+DescribeInstances response SecurityGroupIdSetType
+
 <DescribeAutoSnapshotPolicyResponse>
 <RequestId>F8B159F2-10B0-4C75-92EE-4CBBC095A3F2</RequestId>
 <AutoSnapshotExcutionStatus>

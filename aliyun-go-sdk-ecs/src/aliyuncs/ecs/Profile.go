@@ -56,7 +56,7 @@ func initProfile(profile *Profile, accessKeyId, accessKeySecret, regionId string
 	profile.SetAccessKeySecret(accessKeySecret)
 	profile.SetRegionId(regionId)
 	profile.SetHttpMethod(HTTPS)
-	profile.SetFormat(FORMAT_JSON)
+	profile.SetFormat(FORMAT_XML)
 	profile.SetVersion(API_V20140526)
 	profile.SetSignatureMethod(SIGN_HMAC_SHA1)
 	profile.SetSignatureVersion(SIGN_V_1_0)

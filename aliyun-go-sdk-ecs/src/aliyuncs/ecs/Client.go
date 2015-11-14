@@ -9,9 +9,11 @@ import(
 	"crypto/sha1"
 	"encoding/base64"
 	"encoding/json"
+	"encoding/xml"
 	"io/ioutil"
 	"fmt"
 	"time"
+	"strings"
 
 	"github.com/pborman/uuid"
 )
@@ -35,7 +37,7 @@ func NewDefaultClient(accessKeyId, accessKeySecret, regionId string) *Client{
 	return client
 }
 
-func (this *Client) Do(request IRequest) (response Response) {
+func (this *Client) Do(request IRequest, response IResponse) error {
 	params := make(map[string] string, 35)
 
 	makeParams(this.profile, request, params)
@@ -46,24 +48,25 @@ func (this *Client) Do(request IRequest) (response Response) {
 
 	fmt.Printf("\n", url)
 
-	resp, err := http.Get(url)
+	httpResp, err := http.Get(url)
 	if err != nil {
-
+		parseHttpResponse(httpResp, response, params["Format"])
 	}
 
-	response = parseHttpResponse(resp, request.Params()["Format"])
-
-	return response
+	return err
 }
 
-func parseHttpResponse(httpResp *http.Response, format string) (ecsResp Response) {
-	ecsResp.Raw = httpResp
-
+func parseHttpResponse(httpResp *http.Response, ecsResp IResponse, format string) {
+	ecsResp.setRaw(httpResp)
 	contents, _ := ioutil.ReadAll(httpResp.Body)
-	params := ecsResp.Params()
-	json.Unmarshal(contents, &params)
-	fmt.Printf("\nresp = %s\n", string(contents))
-	return ecsResp
+
+	if strings.EqualFold(FORMAT_JSON, format) {
+		json.Unmarshal(contents, ecsResp)
+	} else if strings.EqualFold(FORMAT_XML, format) {
+		xml.Unmarshal(contents, ecsResp)
+	}
+
+	//fmt.Printf("\nresp = %s\n", string(contents))
 }
 
 	// 1. make public params

@@ -1,0 +1,40 @@
+1. 返回值里边有对象集合
+2. 请求值里有数组
+
+实例，
+
+<DescribeAutoSnapshotPolicyResponse>
+<RequestId>F8B159F2-10B0-4C75-92EE-4CBBC095A3F2</RequestId>
+<AutoSnapshotExcutionStatus>
+<DataDiskExcutionStatus>Executed</DataDiskExcutionStatus>
+<SystemDiskExcutionStatus>Executed</SystemDiskExcutionStatus>
+</AutoSnapshotExcutionStatus>
+<AutoSnapshotOccupation>0</AutoSnapshotOccupation>
+<AutoSnapshotPolicy>
+<DataDiskPolicyRetentionLastWeek>true</DataDiskPolicyRetentionLastWeek>
+<DataDiskPolicyRetentionDays>3</DataDiskPolicyRetentionDays>
+<DataDiskPolicyEnabled>false</DataDiskPolicyEnabled>
+<SystemDiskPolicyEnabled>false</SystemDiskPolicyEnabled>
+<SystemDiskPolicyRetentionLastWeek>true</SystemDiskPolicyRetentionLastWeek>
+<DataDiskPolicyTimePeriod>1</DataDiskPolicyTimePeriod>
+<SystemDiskPolicyTimePeriod>1</SystemDiskPolicyTimePeriod>
+<SystemDiskPolicyRetentionDays>3</SystemDiskPolicyRetentionDays>
+</AutoSnapshotPolicy>
+</DescribeAutoSnapshotPolicyResponse>
+
+<Error>
+<RequestId>A9E024BB-4C8C-498A-9DD2-F7998C9C21B0</RequestId>
+<HostId>ecs-cn-hangzhou.aliyuncs.com</HostId>
+<Code>InternalError</Code>
+<Message>
+The request processing has failed due to some unknown error, exception or failure.
+</Message>
+</Error>
+
+
+{
+"RequestId":"E3718EBA-EB14-4E48-8FB3-0748C46030DF",
+"HostId":"ecs-cn-hangzhou.aliyuncs.com",
+"Code":"IncorrectInstanceStatus",
+"Message":"The current status of the resource does not support this operation."
+}

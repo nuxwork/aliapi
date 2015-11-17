@@ -1,5 +1,6 @@
 package model
 
+import "strconv"
 import "aliyuncs/ecs"
 
 type ModifyImageSharePermissionRequest struct {
@@ -28,18 +29,22 @@ func (this *ModifyImageSharePermissionRequest) GetImageId() string {
 	return this.Get("ImageId")
 }
 
-func (this *ModifyImageSharePermissionRequest) SetAddAccountn(v string){
-	this.Set("AddAccount.n", v)
+func (this *ModifyImageSharePermissionRequest) SetAddAccountn(v string, n int){
+	k := "AddAccount." + strconv.Itoa(n)
+	this.Set(k, v)
 }
 
-func (this *ModifyImageSharePermissionRequest) GetAddAccountn() string {
-	return this.Get("AddAccount.n")
+func (this *ModifyImageSharePermissionRequest) GetAddAccountn(n int) string {
+	k := "AddAccount." + strconv.Itoa(n)
+	return this.Get(k)
 }
 
-func (this *ModifyImageSharePermissionRequest) SetRemoveAccountn(v string){
-	this.Set("RemoveAccount.n", v)
+func (this *ModifyImageSharePermissionRequest) SetRemoveAccountn(v string, n int){
+	k := "RemoveAccount." + strconv.Itoa(n)
+	this.Set(k, v)
 }
 
-func (this *ModifyImageSharePermissionRequest) GetRemoveAccountn() string {
-	return this.Get("RemoveAccount.n")
+func (this *ModifyImageSharePermissionRequest) GetRemoveAccountn(n int) string {
+	k := "RemoveAccount." + strconv.Itoa(n)
+	return this.Get(k)
 }

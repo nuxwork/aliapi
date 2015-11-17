@@ -19,3 +19,11 @@ func (this *RebootInstanceRequest) SetInstanceId(v string){
 func (this *RebootInstanceRequest) GetInstanceId() string {
 	return this.Get("InstanceId")
 }
+
+func (this *RebootInstanceRequest) SetForceStop(v bool){
+	this.SetBool("ForceStop", v)
+}
+
+func (this *RebootInstanceRequest) GetForceStop() bool {
+	return this.GetBool("ForceStop")
+}

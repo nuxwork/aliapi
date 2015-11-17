@@ -185,7 +185,7 @@ func makeUrl(profile *Profile, params map[string] string) string{
 	}
 
 	var buf bytes.Buffer
-	buf.WriteString(profile.GetHttpMethod())
+	buf.WriteString(profile.GetProtocol())
 	buf.WriteString("://ecs-cn-hangzhou.aliyuncs.com/?")
 
 	i := 0

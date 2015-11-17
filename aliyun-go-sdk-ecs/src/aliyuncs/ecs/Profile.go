@@ -6,8 +6,8 @@ const(
 )
 
 const(
-	HTTP string = "http"
-	HTTPS string = "https"
+	PROTOCOL_HTTP string = "http"
+	PROTOCOL_HTTPS string = "https"
 )
 
 // Format of return value
@@ -55,7 +55,7 @@ func initProfile(profile *Profile, accessKeyId, accessKeySecret, regionId string
 	profile.SetAccessKeyId(accessKeyId)
 	profile.SetAccessKeySecret(accessKeySecret)
 	profile.SetRegionId(regionId)
-	profile.SetHttpMethod(HTTPS)
+	profile.SetProtocol(PROTOCOL_HTTPS)
 	profile.SetFormat(FORMAT_XML)
 	profile.SetVersion(API_V20140526)
 	profile.SetSignatureMethod(SIGN_HMAC_SHA1)
@@ -70,12 +70,12 @@ func (this *Profile) GetRegionId() string {
 	return this.Get("RegionId")
 }
 
-func (this *Profile) SetHttpMethod(v string){
-	this.Set("HttpMethod", v)
+func (this *Profile) SetProtocol(v string){
+	this.Set("Protocol", v)
 }
 
-func (this *Profile) GetHttpMethod() string {
-	return this.Get("HttpMethod")
+func (this *Profile) GetProtocol() string {
+	return this.Get("Protocol")
 }
 
 func (this *Profile) SetFormat(v string){

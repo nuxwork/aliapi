@@ -8,7 +8,11 @@ type DescribeDisksResponse struct {
 	TotalCount string
 	PageNumber string
 	PageSize string
-	Disks DiskItemType
+	Disks DiskItemSetType
+}
+
+type DiskItemSetType struct {
+	Disk []DiskItemType
 }
 
 type DiskItemType struct {

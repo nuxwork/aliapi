@@ -1,5 +1,6 @@
 package model
 
+import "strconv"
 import "aliyuncs/ecs"
 
 type CreateInstanceRequest struct {
@@ -174,12 +175,14 @@ cloud_ssd：20 ~ 1024
 ephemeral_ssd：5 ~ 800
 指定该参数后，Size大小必须 ≥ 指定快照SnapshotId的大小。
 */
-func (this *CreateInstanceRequest) SetDataDisknSize(v int){
-	this.SetInt("DataDisk.n.Size", v)
+func (this *CreateInstanceRequest) SetDataDisknSize(v int, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".Size"
+	this.SetInt(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknSize() int {
-	return this.GetInt("DataDisk.n.Size")
+func (this *CreateInstanceRequest) GetDataDisknSize(n int) int {
+	k := "DataDisk." + strconv.Itoa(n) + ".Size"
+	return this.GetInt(k)
 }
 
 /*
@@ -191,56 +194,68 @@ cloud_ssd – SSD云盘
 ephemeral_ssd - 本地 SSD 盘
 默认值：cloud
 */
-func (this *CreateInstanceRequest) SetDataDisknCategory(v string){
-	this.Set("DataDisk.n.Category", v)
+func (this *CreateInstanceRequest) SetDataDisknCategory(v string, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".Category"
+	this.Set(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknCategory() string {
-	return this.Get("DataDisk.n.Category")
+func (this *CreateInstanceRequest) GetDataDisknCategory(n int) string {
+	k := "DataDisk." + strconv.Itoa(n) + ".Category"
+	return this.Get(k)
 }
 
-func (this *CreateInstanceRequest) SetDataDisknSnapshotId(v string){
-	this.Set("DataDisk.n.SnapshotId", v)
+func (this *CreateInstanceRequest) SetDataDisknSnapshotId(v string, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".SnapshotId"
+	this.Set(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknSnapshotId() string {
-	return this.Get("DataDisk.n.SnapshotId")
+func (this *CreateInstanceRequest) GetDataDisknSnapshotId(n int) string {
+	k := "DataDisk." + strconv.Itoa(n) + ".SnapshotId"
+	return this.Get(k)
 }
 
-func (this *CreateInstanceRequest) SetDataDisknDiskName(v string){
-	this.Set("DataDisk.n.DiskName", v)
+func (this *CreateInstanceRequest) SetDataDisknDiskName(v string, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".DiskName"
+	this.Set(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknDiskName() string {
-	return this.Get("DataDisk.n.DiskName")
+func (this *CreateInstanceRequest) GetDataDisknDiskName(n int) string {
+	k := "DataDisk." + strconv.Itoa(n) + ".DiskName"
+	return this.Get(k)
 }
 
-func (this *CreateInstanceRequest) SetDataDisknDescription(v string){
-	this.Set("DataDisk.n.Description", v)
+func (this *CreateInstanceRequest) SetDataDisknDescription(v string, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".Description"
+	this.Set(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknDescription() string {
-	return this.Get("DataDisk.n.Description")
+func (this *CreateInstanceRequest) GetDataDisknDescription(n int) string {
+	k := "DataDisk." + strconv.Itoa(n) + ".Description"
+	return this.Get(k)
 }
 
 /*
 空表示由系统默认分配，/dev/xvdb 开始到 /dev/xvdz
 默认值：空
 */
-func (this *CreateInstanceRequest) SetDataDisknDevice(v string){
-	this.Set("DataDisk.n.Device", v)
+func (this *CreateInstanceRequest) SetDataDisknDevice(v string, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".Device"
+	this.Set(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknDevice() string {
-	return this.Get("DataDisk.n.Device")
+func (this *CreateInstanceRequest) GetDataDisknDevice(n int) string {
+	k := "DataDisk." + strconv.Itoa(n) + ".Device"
+	return this.Get(k)
 }
 
-func (this *CreateInstanceRequest) SetDataDisknDeleteWithInstance(v bool){
-	this.SetBool("DataDisk.n.DeleteWithInstance", v)
+func (this *CreateInstanceRequest) SetDataDisknDeleteWithInstance(v bool, n int){
+	k := "DataDisk." + strconv.Itoa(n) + ".DeleteWithInstance"
+	this.SetBool(k, v)
 }
 
-func (this *CreateInstanceRequest) GetDataDisknDeleteWithInstance() bool {
-	return this.GetBool("DataDisk.n.DeleteWithInstance")
+func (this *CreateInstanceRequest) GetDataDisknDeleteWithInstance(n int) bool {
+	k := "DataDisk." + strconv.Itoa(n) + ".DeleteWithInstance"
+	return this.GetBool(k)
 }
 
 func (this *CreateInstanceRequest) SetVSwitchId(v string){

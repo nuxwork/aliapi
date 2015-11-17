@@ -1,0 +1,32 @@
+{
+  "PageNumber": 1,
+  "PageSize": 2,
+  "RequestId": "659F91C6-1949-43B0-90C4-B6342CA757D5",
+  "Snapshots": {
+    "Snapshot": [
+      {
+        "CreationTime": "2015-07-30T05:00:14Z",
+        "Progress": "100%",
+        "SnapshotId": "s-943ypfgic",
+        "SnapshotName": "auto_20150730_3",
+        "SourceDiskId": "d-944qyqjfa",
+        "SourceDiskSize": 20,
+        "SourceDiskType": "system",
+        "Status": "accomplished",
+        "Usage": "none"
+      },
+      {
+        "CreationTime": "2015-07-30T05:00:14Z",
+        "Progress": "100%",
+        "SnapshotId": "s-94osg320e",
+        "SnapshotName": "auto_20150730_3",
+        "SourceDiskId": "d-94j355jsq",
+        "SourceDiskSize": 20,
+        "SourceDiskType": "system",
+        "Status": "accomplished",
+        "Usage": "none"
+      }
+    ]
+  },
+  "TotalCount": 36
+}

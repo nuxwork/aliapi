@@ -7,7 +7,11 @@ type DescribeInstancesResponse struct {
 	TotalCount int
 	PageNumber int
 	PageSize int
-	Instances []InstanceAttributesType
+	Instances InstanceAttributesTypes
+}
+
+type InstanceAttributesTypes struct{
+	Instance []InstanceAttributesType
 }
 
 type InstanceAttributesType struct {
@@ -20,7 +24,9 @@ type InstanceAttributesType struct {
 	InstanceType string
 	HostName string
 	SerialNumber string
+	ClusterId string
 	Status string
+	VlanId string
 	SecurityGroupIds SecurityGroupIdSetType
 	PublicIpAddress IpAddressSetType
 	InternetMaxBandwidthIn int
@@ -36,6 +42,7 @@ type InstanceAttributesType struct {
 	DeviceAvailable bool
 	IoOptimized bool
 	ExpiredTime string
+	Tags TagType
 }
 
 type SecurityGroupIdSetType struct {
@@ -50,7 +57,7 @@ type VpcAttributesType struct {
 }
 
 type IpAddressSetType struct {
-	IpAddress string
+	IpAddress []string
 }
 
 type EipAddressAssociateType struct {
@@ -61,5 +68,9 @@ type EipAddressAssociateType struct {
 }
 
 type OperationLocksType struct {
-	LockReason string
+	LockReason []string
+}
+
+type TagType struct {
+	Tag []string
 }

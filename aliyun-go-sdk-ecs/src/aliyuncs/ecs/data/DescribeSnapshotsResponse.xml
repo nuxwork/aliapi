@@ -1,0 +1,34 @@
+<DescribeSnapshotsResponse>
+    <Snapshots>
+        <Snapshot>
+            <CreationTime>2014-07-24T13:00:52Z</CreationTime>
+            <Description></Description>
+            <SourceDiskId>d-23x0r79qy</SourceDiskId>
+            <SourceDiskType>DATA</SourceDiskType>
+            <ProductCode></ProductCode>
+            <SnapshotName>auto_20140724_2</SnapshotName>
+            <Progress>100%</Progress>
+            <SourceDiskSize>50</SourceDiskSize>
+            <Status>accomplished</Status>
+            <SnapshotId>s-23f2i9s4t</SnapshotId>
+            <Usage>none</Usage>
+        </Snapshot>
+        <Snapshot>
+            <CreationTime>2014-07-24T13:00:42Z</CreationTime>
+            <Description></Description>
+            <SourceDiskId>101-70105379</SourceDiskId>
+            <SourceDiskType>DATA</SourceDiskType>
+            <ProductCode></ProductCode>
+            <SnapshotName>auto_20140724_2</SnapshotName>
+            <Progress>100%</Progress>
+            <SourceDiskSize>5</SourceDiskSize>
+            <Status>accomplished</Status>
+            <SnapshotId>s-23izto5qm</SnapshotId>
+            <Usage>none</Usage>
+        </Snapshot>
+    </Snapshots>
+    <PageNumber>1</PageNumber>
+    <PageSize>2</PageSize>
+    <TotalCount>36</TotalCount>
+    <RequestId>2F409D67-329A-4405-B924-2FC28566B366</RequestId>
+</DescribeSnapshotsResponse>

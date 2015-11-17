@@ -23,17 +23,17 @@ type IClient interface {
 }
 
 type Client struct {
-	profile Profile
+	profile *Profile
 }
 
-func NewClient(profile Profile) *Client{
+func NewClient(profile *Profile) *Client{
 	client := &Client{profile:profile}
 	return client
 }
 
 func NewDefaultClient(accessKeyId, accessKeySecret, regionId string) *Client{
 	profile := NewDefaultProfile(accessKeyId, accessKeySecret, regionId)
-	client  := NewClient(*profile)
+	client  := NewClient(profile)
 	return client
 }
 
@@ -46,12 +46,13 @@ func (this *Client) Do(request IRequest, response IResponse) error {
 
 	url := makeUrl(this.profile, params)
 
-	fmt.Printf("\n", url)
+	fmt.Printf("\n%s\n", url)
 
-	httpResp, err := http.Get(url)
-	if err != nil {
-		parseHttpResponse(httpResp, response, params["Format"])
-	}
+	// httpResp, err := http.Get(url)
+	// if err != nil {
+	// 	parseHttpResponse(httpResp, response, params["Format"])
+	// }
+	var err error
 
 	return err
 }
@@ -71,7 +72,7 @@ func parseHttpResponse(httpResp *http.Response, ecsResp IResponse, format string
 
 	// 1. make public params
 	// 2. delete signture
-func makeParams(profile Profile, request IRequest, params map[string] string){
+func makeParams(profile *Profile, request IRequest, params map[string] string){
 	r_params := request.Params()
 
 	params["Format"] = profile.GetFormat()
@@ -92,7 +93,7 @@ func makeParams(profile Profile, request IRequest, params map[string] string){
 	// 3.1 sort params
 	// 3.2 ...
 	// 4. [signture] = sign
-func makeSign(profile Profile, params map[string] string){
+func makeSign(profile *Profile, params map[string] string){
 	delete(params, "Signature")
 
 	leng := len(params)
@@ -178,7 +179,7 @@ func signature(source string, secret string) (sign string){
 }
 
 	// 5. make url
-func makeUrl(profile Profile, params map[string] string) string{
+func makeUrl(profile *Profile, params map[string] string) string{
 	if params == nil {
 		return ""
 	}
